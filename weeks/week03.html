@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Assignment portal for Lia Ayos in WDD 330: Web Frontend Development at Brigham Young University - Idaho" />
+    <title>Lia's Portfolio</title>
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        <h1>Lia's Portfolio</h1>
+
+        <h2>Notes:</h2>
+        <h3>Object methods, "this"</h3>
+        <p> Objects are created to represent users or oders. A user can
+            make actions, actions are the funtion properties. An object can be
+            funtions, arrays, there are build-in objects and user-defined objects.
+            If a property's values is a funtion, we calle it method.
+            Examples
+            
+            let user = {
+                name: "John",
+                age: 30
+              };
+              
+              user.sayHi = function() {
+                alert("Hello!");
+              };
+              
+              user.sayHi(); // Hello!
+
+              The method sayHi of the user.
+
+              To access the object a method can use this keyword. The value of 
+              this is the object before dot, this dot is used to call the method.
+
+              let user = {
+                name: "John",
+                age: 30,
+              
+                sayHi() {
+                  // "this" is the "current object"
+                  alert(this.name);
+                }
+              
+              };
+              
+              user.sayHi(); // John
+
+              It can be called without this, like in this example:
+
+              let user = {
+                name: "John",
+                age: 30,
+              
+                sayHi() {
+                  alert(user.name); // "user" instead of "this"
+                }
+              
+              };
+
+              Using const instead of let might help with the issue of overwrite
+              the variable and get the wrong object.
+
+              Another example:
+                let user = { name: "John" };
+                let admin = { name: "Admin" };
+
+                function sayHi() {
+                alert( this.name );
+                }
+
+                // use the same function in two objects
+                user.f = sayHi;
+                admin.f = sayHi;
+
+                // these calls have different this
+                // "this" inside the function is the object "before the dot"
+                user.f(); // John  (this == user)
+                admin.f(); // Admin  (this == admin)
+
+                admin['f'](); // Admin (dot or square brackets access the method – doesn't matter)
+        </p>
+        <h3>Arrow Funtion have no THIS</h3>
+        <p> Example:
+            let user = {
+                firstName: "Ilya",
+                sayHi() {
+                  let arrow = () => alert(this.firstName);
+                  arrow();
+                }
+              };
+              
+              user.sayHi(); // Ilya
+        </p>
+        <h3>Object Literals</h3>
+    
+        <p> An object literal is a directly created object in the language by
+            wrapping all its properties and methods in curly braces. It is like 
+            a dictionary.
+
+            Example:
+
+            const superman = {
+                name: 'Superman',
+                'real name': 'Clark Kent',
+                height: 75,
+                weight: 235,
+                hero: true,
+                villain: false,
+                allies: ['Batman','Supergirl','Superboy'],
+                fly() {
+                    return 'Up, up and away!';
+                }
+            };
+
+            The properties are separated by comas, in this exaple those are key 
+            value pair, the first property would be name, and the value of that 
+            property is superman, the last one is a method and its value is a funtion.
+        </p>
+
+        <p>
+            There are two ways of creating objects, here the examples:
+            const spiderman = {};
+            const spiderman = new Object();
+        </p>
+
+        <h3>Accessing Properties</h3>
+        <p> It can be done by using the dot notation, examples:
+            superman.name
+            'Superman'
+            Also with bracket notation.
+            superman['name']
+            'Superman'
+        </p>
+
+        <h3>Calling Methods</h3>
+        <p> We can call an object's method with the dot and the bracket notation, it is the
+            same as calling a funtion it has to have the parentheses. Example:
+            superman.fly()
+            << 'Up, up and away!'
+
+            superman['fly']()
+            << 'Up, up and away!'
+        </p>
+
+        <h3>Checking if Properties or Methods Exist</h3>
+        <p> We can use the in operator to check if an object has a property.
+            Example:
+            'city' in superman;
+            << false
+
+            All objects have hasOwnProperty() this is to check if the object 
+            has a property that is its own or it is inherited from antoher object.
+            For example:
+            superman.hasOwnProperty('city');
+            << false
+
+            superman.hasOwnProperty('name');
+            << true
+        </p>
+
+        <h3>Finding all the Properties of an Object</h3>
+        <p> Here it uses the for in loop to go through all the properties in an
+            object.
+            
+            
+            for(const key in superman) {
+            console.log(key + ": " + superman[key]);
+        }
+        << "name: Superman"
+        << "real name: Clark Kent"
+        << "height: 75"
+        << "weight: 235"
+        << "hero: true"
+        << "villain: false"
+        << "allies: Batman,Supergirl,Superboy"
+        << "fly: function (){
+            console.log(\"Up, up and away!\");
+        }"
+
+        This example will make sure that iterates over an object's own properties,
+        inherited ones are ignored.
+        for(const key in superman) {
+            if(superman.hasOwnProperty(key)){
+                console.log(key + ": " + superman[key]);
+            }
+        }
+
+        The Object.keys() will return an array of all the keys. We also find Object.values()
+        to get the object's value.
+           
+        </p>
+
+        <h3>Adding Properties</h3>
+        <p> This is an example in how can be done:
+            superman.city = 'Metropolis';
+            << 'Metropolis'
+            Now it is created city property, and its value is metropolis and added to 
+            the object superman.
+        </p>
+
+        <h3>Changing Properties</h3>
+        <p> This is an example in how to change the value of an object's property:
+            superman['real name'] = 'Kal-El';
+            << 'Kal-El'
+        </p>
+
+        <h3>Removing Properties</h3>
+        <p> It can be done by using delete operator, this is an example:
+            delete superman.fly
+            << true
+        </p>
+
+        <h3>Objects as Parameters to Functions</h3>
+        <p> An object literal can be passed as a parameter to a funtion. For example using
+            using a funtion called greet():
+
+            function greet({greeting,name,age}) {
+                return `${greeting}! My name is ${name} and I am ${age} years old.`;
+            }
+
+            How the code knows from where to take the greeting, name and age?
+        </p>
+
+        <h3>Built-in Objects</h3>
+        <p> JSON:
+            There are some differences with the other objects literals, its property names
+            must be double-quoted, values are double-quoted strings, numbers, true, false,
+            nulls, arrays and objects, it is not allow funtions as values.
+            JSON has some methods:
+            parse() method is used for taking a string data in JSON format and returning a 
+            JavaScript object. For exaple:
+
+            JSON.parse(batman);
+            << { name: 'Batman',
+            'real name': 'Bruce Wayne',
+            height: 74,
+            weight: 210,
+            hero: true,
+            villain: false,
+            allies: [ 'Robin', 'Batgirl', 'Superman' ] }
+
+            stringyfy() does the opposite, it takes a JavaScript object and returns a JASON data.
+            For example:
+
+            const wonderWoman = {
+                name: 'Wonder Woman',
+                'real name': 'Diana Prince',
+                height: 72,
+                weight: 165,
+                hero: true,
+                villain: false,
+                allies: ['Wonder Girl','Donna Troy','Superman'],
+                lasso: function(){
+                    console.log('You will tell the truth!');
+                }
+            }
+            
+            JSON.stringify(wonderWoman);
+            << '{"name":"Wonder Woman","real name":"Diana Prince","height":72,
+            "weight":165,"hero":true,"villain":false,"allies":["Wonder Girl",
+            "Donna Troy","Superman"]}'
+        </p>
+
+        <h3>Math Object</h3>
+        <p> This is a built-in object it has properties representing mathematical constants,
+            and methods as well. All properties in Math Object cannot be changed, it has the follow 8 properties.
+            Math.PI // The ratio of the circumference and diameter of a circle
+            << 3.141592653589793
+
+            Math.SQRT2 // The square root of 2
+            << 1.4142135623730951
+
+            Math.SQRT1_2 // The reciprocal of the square root of 2
+            << 0.7071067811865476
+
+            Math.E // Euler's constant
+            << 2.718281828459045
+
+            Math.LN2 // The natural logarithm of 2
+            << 0.6931471805599453
+
+            Math.LN10 // The natural logarithm of 10
+            << 2.302585092994046
+
+            Math.LOG2E // Log base 2 of Euler's constant
+            << 1.4426950408889634
+
+            Math.LOG10E // Log base 10 of Euler's constant
+            << 0.4342944819032518
+
+
+            It also has several methods. The Math.abs() will return the absolute value of a number,
+            for example if it is negative will return a positive one, if it is positive, it will return
+            the same.
+
+            The Math.ceil() rounds a number up to the next integer.
+            Math.floor() will round a number down to the next integer.
+            Math.round() will round a number to the nearest integer.
+            Math.trunc() will return the intger part of a number. 4.9 will return 4.
+            Math.exp() will raise a number to the power of Euler's constant. For example:
+
+            Math.exp(1); // This is Euler's constant
+            << 2.718281828459045
+
+            Math.exp(0); // Any number to the power of 0 is 1
+            << 1
+
+            Math.exp(-3);
+            << 0.049787068367863944
+
+            Math.pow() will raise any number that is the first argument given to the power
+            of the second argument. Example: 
+            Math.pow(3, 2); // 3 squared
+            << 9
+
+            Math.sqrt() will return the positive square root of a number.
+            Math.cbrt() will return the cube root of numbers.
+            Math.hypot() will return the square root of the sum of the squares of all its 
+            arguments.
+            Math.log()  will return natural logarithm of a number.
+            Math.max() will return the maximum number of its arguments.
+            Math.min() will return the minimum number of the given arguments.
+            Math.sin() will return the sine of an angle.
+            Math.cos() will return the cosine of an angle.
+            Math.tan() will return the tangent of an angle.
+            Math.asin() will return the arcsine of a number. The result is an angle.
+            Math.acos() will return the arccosine of a number. The result is an angle.
+            Math.atan() will return the arctangent of a number. The result is an angle.
+
+            Math.random() will return a random number.
+            There are also setter methods.
+        </p>
+
+        <h3>The RegExp Object</h3>
+        <p>  There are two options to write regular expressions, showed in these examples:
+            const pattern = /[a-zA-Z]+ing$/;
+            const pattern = new RegExp('[a-zA-Z]+ing');
+        </p>
+
+        <h3>The Document Object Model</h3>
+        <p>
+            DOM allows access elememnts from a web page and also the interaction with the page
+            it represents an HTML document as network connected nodes.
+            Nodes have a numerical code to know what type they are:
+            1 = elemnent
+            2 = attribute
+            3 = text
+            8 = comment
+            9 = body
+
+            Some methods from DOM level 0 that are still used:
+            Document.body returns the body element of a web page, as we saw in the previous example.
+            Document.images returns a node list of all the images contained in the document.
+            Document.links returns a node list of all the a> elements and area> elements that have an href attribute.
+            Document.anchors returns a node list of all the a> elements that have a name attribute.
+            Document.forms returns a node list of all the forms in the document. This will be used when we cover forms in Chapter 8.
+   
+        </p>
+        <h3>Nodes</h3>
+        <p>  childNodes property is a list of nodes that are children of one node. These methods are finding
+            the nodes not the elements.
+            To find the value we can use textContent, nodeValue property, innerText property works in a similar way.
+        </p>
+
+        <h3>Getting and Setting Attributes</h3>
+        <p> 
+            getAttribute() method returns the value of the attribute provided as an argument.
+            setAttribute can change the value of an element's attributes. It takes two arguments: the attribute that you
+            wish to change, and the new value of that attribute.
+            className property allows us to change the class as showing in the example below:
+            wonderWoman.className = 'hero'
+            Result "hero"
+            In this example we can create and add an element and text node.
+            const flash = document.createElement('li');
+            flash.textContent = 'Flash';
+            innerHTML returns all the child elements of an element as a string, it can be used to change these children.
+            For example:
+            h1.innerHTML = 'Suicide Squad';  
+            This changes the title to Suicide Squad.
+        </p>
+
+        <h3>Event Listeners</h3>
+        <p>  The event listener lets me know when an evenet happens. Every time a page is 
+            clicked a callback funtion will be called. Example below:
+            document.body.addEventListener("click", doSomething);
+            The event object is the type of the event, in the example above the type will say "click"
+        </p>
+
+        <h2>Questions:</h2>
+        <p>     
+            What are nodes?
+            What is the difference between nodes and elements?
+        </p>
+
+    </main>
+
+</body>
+
+</html>
