@@ -17,151 +17,54 @@
 
         <h2>Notes:</h2>
         <h3>Object methods, "this"</h3>
-        <p> Objects are created to represent users or oders. A user can
-            make actions, actions are the funtion properties. An object can be
-            funtions, arrays, there are build-in objects and user-defined objects.
-            If a property's values is a funtion, we calle it method.
-            Examples
-            
-            let user = {
-                name: "John",
-                age: 30
-              };
-              
-              user.sayHi = function() {
-                alert("Hello!");
-              };
-              
-              user.sayHi(); // Hello!
-
-              The method sayHi of the user.
-
-              To access the object a method can use this keyword. The value of 
-              this is the object before dot, this dot is used to call the method.
-
-              let user = {
-                name: "John",
-                age: 30,
-              
-                sayHi() {
-                  // "this" is the "current object"
-                  alert(this.name);
-                }
-              
-              };
-              
-              user.sayHi(); // John
-
-              It can be called without this, like in this example:
-
-              let user = {
-                name: "John",
-                age: 30,
-              
-                sayHi() {
-                  alert(user.name); // "user" instead of "this"
-                }
-              
-              };
-
-              Using const instead of let might help with the issue of overwrite
-              the variable and get the wrong object.
-
-              Another example:
-                let user = { name: "John" };
-                let admin = { name: "Admin" };
-
-                function sayHi() {
-                alert( this.name );
-                }
-
-                // use the same function in two objects
-                user.f = sayHi;
-                admin.f = sayHi;
-
-                // these calls have different this
-                // "this" inside the function is the object "before the dot"
-                user.f(); // John  (this == user)
-                admin.f(); // Admin  (this == admin)
-
-                admin['f'](); // Admin (dot or square brackets access the method – doesn't matter)
-        </p>
-        <h3>Arrow Funtion have no THIS</h3>
-        <p> Example:
-            let user = {
-                firstName: "Ilya",
-                sayHi() {
-                  let arrow = () => alert(this.firstName);
-                  arrow();
-                }
-              };
-              
-              user.sayHi(); // Ilya
+        <p> Objects are created to represent the users and users or orders usually have actions, these are the funtion properties. They can be
+            funtions or arrays. There are build-in objects and user-defined objects.
+            If a property's values is a funtion, its name is method.
+            Arrow Funtion have no THIS 
         </p>
         <h3>Object Literals</h3>
     
-        <p> An object literal is a directly created object in the language by
-            wrapping all its properties and methods in curly braces. It is like 
+        <p> An object literal is a created object and wrapping all its properties and methods in curly braces. It is like 
             a dictionary.
-
-            Example:
-
-            const superman = {
-                name: 'Superman',
-                'real name': 'Clark Kent',
-                height: 75,
-                weight: 235,
-                hero: true,
-                villain: false,
-                allies: ['Batman','Supergirl','Superboy'],
-                fly() {
-                    return 'Up, up and away!';
-                }
-            };
-
-            The properties are separated by comas, in this exaple those are key 
-            value pair, the first property would be name, and the value of that 
-            property is superman, the last one is a method and its value is a funtion.
+            The properties in an object literal, are separated by comas, the keys are
+            value pair, the first property can be a name, and the value of that 
+            property could be "superman", as in the example in the book, the last one is a method and its value is a funtion.
         </p>
 
         <p>
             There are two ways of creating objects, here the examples:
-            const spiderman = {};
-            const spiderman = new Object();
+            const hombrearaña = {};
+            const hombrearaña = new Object();
         </p>
 
         <h3>Accessing Properties</h3>
         <p> It can be done by using the dot notation, examples:
-            superman.name
-            'Superman'
+            hombrearaña.name
+            'hombrearaña'
             Also with bracket notation.
-            superman['name']
-            'Superman'
+            hombrearaña['name']
+            'hombrearaña'
         </p>
 
         <h3>Calling Methods</h3>
-        <p> We can call an object's method with the dot and the bracket notation, it is the
+        <p> We can call an object's method with the dot and the bracket notation, as in the example above, it is the
             same as calling a funtion it has to have the parentheses. Example:
-            superman.fly()
-            << 'Up, up and away!'
-
-            superman['fly']()
-            << 'Up, up and away!'
+            hombrearaña.fly() //// hombrearaña['fly']()
+            
         </p>
 
         <h3>Checking if Properties or Methods Exist</h3>
-        <p> We can use the in operator to check if an object has a property.
+        <p> Using the in operator we can know if an object has a property.
             Example:
-            'city' in superman;
+            'city' in hombrearaña;
             << false
 
-            All objects have hasOwnProperty() this is to check if the object 
-            has a property that is its own or it is inherited from antoher object.
+            All objects have hasOwnProperty() and help us to check if the object has a property that belongs to it, or if another object is giving it. 
             For example:
-            superman.hasOwnProperty('city');
+            hombrearaña.hasOwnProperty('city');
             << false
 
-            superman.hasOwnProperty('name');
+            hombrearaña.hasOwnProperty('name');
             << true
         </p>
 
@@ -173,22 +76,21 @@
             for(const key in superman) {
             console.log(key + ": " + superman[key]);
         }
-        << "name: Superman"
-        << "real name: Clark Kent"
-        << "height: 75"
-        << "weight: 235"
+        << "name: hombrearaña"
+        << "real name: Peter"
+        << "height: 50"
+        << "weight: 200"
         << "hero: true"
         << "villain: false"
-        << "allies: Batman,Supergirl,Superboy"
         << "fly: function (){
-            console.log(\"Up, up and away!\");
+            console.log(\"keep it up\");
         }"
 
         This example will make sure that iterates over an object's own properties,
-        inherited ones are ignored.
-        for(const key in superman) {
-            if(superman.hasOwnProperty(key)){
-                console.log(key + ": " + superman[key]);
+        inherited ones will be ignored.
+        for(const key in hombrearaña) {
+            if(hombrearaña.hasOwnProperty(key)){
+                console.log(key + ": " + hombrearaña[key]);
             }
         }
 
