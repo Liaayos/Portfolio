@@ -25,7 +25,7 @@
         <h3>Object Literals</h3>
     
         <p> An object literal is a created object and wrapping all its properties and methods in curly braces. It is like 
-            a dictionary.
+            a dictionary for other programming languages.
             The properties in an object literal, are separated by comas, the keys are
             value pair, the first property can be a name, and the value of that 
             property could be "superman", as in the example in the book, the last one is a method and its value is a funtion.
@@ -73,8 +73,8 @@
             object.
             
             
-            for(const key in superman) {
-            console.log(key + ": " + superman[key]);
+            for(const key in hombrearaña) {
+            console.log(key + ": " + hombrearaña[key]);
         }
         << "name: hombrearaña"
         << "real name: Peter"
@@ -101,21 +101,21 @@
 
         <h3>Adding Properties</h3>
         <p> This is an example in how can be done:
-            superman.city = 'Metropolis';
-            << 'Metropolis'
-            Now it is created city property, and its value is metropolis and added to 
-            the object superman.
+            hombrearaña.city = 'New York';
+            << 'New York'
+            Now it is created city property, and its value is New York and added to 
+            the object hombrearaña.
         </p>
 
         <h3>Changing Properties</h3>
         <p> This is an example in how to change the value of an object's property:
-            superman['real name'] = 'Kal-El';
-            << 'Kal-El'
+            hombrearaña['real name'] = 'Peter Parker';
+            << 'Peter Parker'
         </p>
 
         <h3>Removing Properties</h3>
         <p> It can be done by using delete operator, this is an example:
-            delete superman.fly
+            delete hombrearaña.telaraña
             << true
         </p>
 
@@ -123,7 +123,7 @@
         <p> An object literal can be passed as a parameter to a funtion. For example using
             using a funtion called greet():
 
-            function greet({greeting,name,age}) {
+            function hello({greeting,name,age}) {
                 return `${greeting}! My name is ${name} and I am ${age} years old.`;
             }
 
@@ -139,35 +139,8 @@
             parse() method is used for taking a string data in JSON format and returning a 
             JavaScript object. For exaple:
 
-            JSON.parse(batman);
-            << { name: 'Batman',
-            'real name': 'Bruce Wayne',
-            height: 74,
-            weight: 210,
-            hero: true,
-            villain: false,
-            allies: [ 'Robin', 'Batgirl', 'Superman' ] }
-
             stringyfy() does the opposite, it takes a JavaScript object and returns a JASON data.
-            For example:
-
-            const wonderWoman = {
-                name: 'Wonder Woman',
-                'real name': 'Diana Prince',
-                height: 72,
-                weight: 165,
-                hero: true,
-                villain: false,
-                allies: ['Wonder Girl','Donna Troy','Superman'],
-                lasso: function(){
-                    console.log('You will tell the truth!');
-                }
-            }
-            
-            JSON.stringify(wonderWoman);
-            << '{"name":"Wonder Woman","real name":"Diana Prince","height":72,
-            "weight":165,"hero":true,"villain":false,"allies":["Wonder Girl",
-            "Donna Troy","Superman"]}'
+                       
         </p>
 
         <h3>Math Object</h3>
@@ -203,41 +176,14 @@
             the same.
 
             The Math.ceil() rounds a number up to the next integer.
-            Math.floor() will round a number down to the next integer.
-            Math.round() will round a number to the nearest integer.
-            Math.trunc() will return the intger part of a number. 4.9 will return 4.
-            Math.exp() will raise a number to the power of Euler's constant. For example:
-
-            Math.exp(1); // This is Euler's constant
-            << 2.718281828459045
-
-            Math.exp(0); // Any number to the power of 0 is 1
-            << 1
-
-            Math.exp(-3);
-            << 0.049787068367863944
-
-            Math.pow() will raise any number that is the first argument given to the power
-            of the second argument. Example: 
-            Math.pow(3, 2); // 3 squared
-            << 9
-
-            Math.sqrt() will return the positive square root of a number.
-            Math.cbrt() will return the cube root of numbers.
-            Math.hypot() will return the square root of the sum of the squares of all its 
-            arguments.
-            Math.log()  will return natural logarithm of a number.
-            Math.max() will return the maximum number of its arguments.
-            Math.min() will return the minimum number of the given arguments.
-            Math.sin() will return the sine of an angle.
-            Math.cos() will return the cosine of an angle.
-            Math.tan() will return the tangent of an angle.
-            Math.asin() will return the arcsine of a number. The result is an angle.
-            Math.acos() will return the arccosine of a number. The result is an angle.
-            Math.atan() will return the arctangent of a number. The result is an angle.
+            Math.floor() rounds a number down to the next integer.
+            Math.round() rounds a number to the nearest integer.
+            Math.trunc() will return the integer part of a number. 4.9 will return 4.
+            Math.exp() will raise a number to the power of Euler's constant. For example
 
             Math.random() will return a random number.
             There are also setter methods.
+            There are more, if needed, check the book.
         </p>
 
         <h3>The RegExp Object</h3>
@@ -248,7 +194,7 @@
 
         <h3>The Document Object Model</h3>
         <p>
-            DOM allows access elememnts from a web page and also the interaction with the page
+            DOM allows access elements from a web page and also allows the interaction with the page;
             it represents an HTML document as network connected nodes.
             Nodes have a numerical code to know what type they are:
             1 = elemnent
@@ -258,11 +204,11 @@
             9 = body
 
             Some methods from DOM level 0 that are still used:
-            Document.body returns the body element of a web page, as we saw in the previous example.
-            Document.images returns a node list of all the images contained in the document.
-            Document.links returns a node list of all the a> elements and area> elements that have an href attribute.
-            Document.anchors returns a node list of all the a> elements that have a name attribute.
-            Document.forms returns a node list of all the forms in the document. This will be used when we cover forms in Chapter 8.
+            Document.body returns the body element of a web page.
+            Document.images returns a node list of all the images in the document.
+            Document.links returns a node list of all the a elements and area elements that have an href attribute.
+            Document.anchors returns a node list of all the a elements that have a name attribute.
+            Document.forms returns a node list of all the forms in the document.
    
         </p>
         <h3>Nodes</h3>
@@ -273,19 +219,10 @@
 
         <h3>Getting and Setting Attributes</h3>
         <p> 
-            getAttribute() method returns the value of the attribute provided as an argument.
-            setAttribute can change the value of an element's attributes. It takes two arguments: the attribute that you
-            wish to change, and the new value of that attribute.
-            className property allows us to change the class as showing in the example below:
-            wonderWoman.className = 'hero'
-            Result "hero"
-            In this example we can create and add an element and text node.
-            const flash = document.createElement('li');
-            flash.textContent = 'Flash';
-            innerHTML returns all the child elements of an element as a string, it can be used to change these children.
-            For example:
-            h1.innerHTML = 'Suicide Squad';  
-            This changes the title to Suicide Squad.
+            getAttribute() This is a method and it gives back the value of the attribute provided as an argument.
+            setAttribute() This changes the value of an element's attributes. With two arguments: the attribute we
+            want to change, and the value we want to set up.
+            
         </p>
 
         <h3>Event Listeners</h3>
@@ -299,6 +236,7 @@
         <p>     
             What are nodes?
             What is the difference between nodes and elements?
+            How this i++ works when making for loops.
         </p>
 
     </main>

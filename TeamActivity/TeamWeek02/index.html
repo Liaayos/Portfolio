@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Events Examples</title>
+   
+    <style>
+        p {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            background-color: #ccc;
+            float: left;
+        }
+
+        .highlight {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="text" type="text"/>
+    <input id="mybutton" type="button">
+    <div id="Mydiv">
+
+    </div>
+
+    <script>
+        const buttonElement = document.getElementById("mybutton");
+        buttonElement.addEventListener("click", myfuntion);
+
+        function myfuntion(event) {
+            const text = document.getElementById("text").value;
+            const divi = document.getElementById("Mydiv");
+            divi.textContent(text)
+            buttonElement.removeEventListener("click", myfuntion)
+        }
+    </script>
+</body>
+
+</html>
