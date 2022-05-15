@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Assignment portal for Lia Ayos in WDD 330: Web Frontend Development at Brigham Young University - Idaho" />
+    <title>Lia's Portfolio</title>
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        <h1>Lia's Portfolio</h1>
+       
+        <h2>Forms</h2>
+        <p>Forms are the one used to get information from the user.
+            We create forms in HTML with "<form>". usually forms are sent to an URL, 
+            but with Javacript we can get the information before is sent.
+            Forms have attributes, types, actions...
+            Using the DOM we can access the form elements with document.forms.nameOfTheForm.
+            Forms have also properties, methods and events. One important method is the form.submit that sends
+            the information to the URL. I can retrieve and change values in a form by using the 
+            dot notation. For example: input.value = 'TheTextIWantToReplace';
+            There are some form controls, to mention some of the common types would be:
+            "<input>" "<select>" "<textarea>" "<button>" by default is always text, however, it can be changed.
+            Form Validation: This is to check wether or not an user placed the right information.
+            For example, the password has the minimun characteres. It is done in two ways, in the client-side using 
+            JavaScript or server-side. Is recomended to use both. We can disable to submit button if the information
+            provided is not correct in forms; we just need to add "disable".
+        </p>
+
+        <h2>Object-Oriented Programming</h2>
+        <p>This is a way to call things of the real life, placed in programming.
+            There are three important concepts in Object-Oriented Programming.
+            Encapsulation:
+            This is when the code to make it work is hidden.
+            Polymorphism:
+            This is when differente objects share the same method. (It can be override to adapt to any needs.)
+            Inheritance:
+            Is when we take the methods and properties of one object to another with the ability to add more.
+            Classes:
+            Are object's blueprint. We can create objects from classes and those objects will inherite what the class has.
+            
+        </p>
+
+        <h2>Constructor Functions</h2>
+        <p>This is the second way of creating objects. It uses This to represent the object that will be returned later.
+            parentheses are not required unless there are any defaul arguments needed.
+            This is the way to create it: constructedObject = new Object();. I like more literal way.
+            
+        </p>
+
+        <h2>Class Declarations</h2>
+        <p>It is very simple to create and very similar to other programming languages: 
+            class NameOfTheClass {constructor({})}. Names must be capitalized.
+        </p>
+
+        <h2>Constructor Property</h2>
+        <p>All objects have their own constructor. This can be used to copy the object without the need to 
+            reference the actual constructor.
+        </p>
+
+        <h2>Static Methods</h2>
+        <p>This is for using in Class Declarations. It is called by the class without using instances of the class.</p>
+
+        <h2>Prototypal Inheritance</h2>
+        <p>Every class has a prototype property, and it can be access by every instance of the class.</p>
+
+        <h2>Prototype Property</h2>
+        <p>This is useful when we don't have access to the class declaration, but we want to add
+            properties and methods to the class. This is an example: ClassName.prototype.WhatWeWantToAccess = 'WithWhatWeWantToReplace';
+        </p>
+
+        <h2>Finding Out the Prototype</h2>
+        <p>There are two ways of finding the prototype of the an object. We can use raph.constructor.prototype; or Object.getPrototypeOf(raph);
+            We can also check if the it has its own property or it is inherited. with hasOwnProperty(). It is not posible to overwrite the prototype
+            if class declarations are used.
+        </p>
+
+        <h2>Property Attributes and Descriptors</h2>
+        <p>Each object's property has attibutes that provide information of the property. All these attributes
+            are store in a property descriptor, this property descriptor is an object with values of each attribute.
+            All these objects have these attibutes int he property descriptor: value, writable, enumerable, and configurable.
+        </p>
+
+        <h2>Getting and Setting Property Descriptors</h2>
+        <p>We can use the Object.defineProperty() method to assign properties.
+            Getters and Setters:
+            An object property descriptor has get() or set() method, or both. 
+        </p>
+
+        <h2>Mixins</h2>
+        <p>This is a way of adding properties and methods from some objects to others without the need to use Inheritance with mixin().
+            It can be completed with Object.assign(), but this is the basic one. We can also add properties with Mixin.
+            The good thing about this is that it can add lots of properties in one step.
+
+        </p>
+
+        <h2>Javacript</h2>
+        <p>We have libraries in Javacript that makes taks easier to complete. As is being used for many programmers, it is common to find
+            solutions in the web for problems. however, we should not rely completely in libraries because the bring more code to our own code.
+            The most popular are jQuery, Lodash, React and Vue.js. There are tow useful manager packages that works to install other packages, called
+            npm and Yarn. It is useful to have separated files, depending of the topic, when the code becomes larger. 
+            There is also a way to compress the files on the server using gzip, that is a compression tool.
+        </p>
+
+        <h2>Minification</h2>
+        <p>This is used to remove any non-necessary code and space to make the code run faster. This can make the code less readable; so, we must be careful.
+            
+        </p>
+
+        
+
+        <h2>Questions:</h2>
+        <p>
+            What is an instance of the class?
+            What is the difference between an object and arrays?
+            What is the difference between classes and Objects?
+            I'm still confused with the use of "this".
+        </p>
+
+    </main>
+    
+</body>
+
+</html>
