@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>To Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <main>
+     <div class="allTasks" id="allTasks">
+         <h1>TODOS</h1>
+        <div class="tasks">
+            <ul id="taskList">
+
+            </ul>
+        </div>
+        <div class="footer">
+            Tasks left: <text class="tasksleft"></text>
+            
+            <button class="all" type="button">
+                All
+            </button>
+            <button class="active" type="button">
+                Active
+            </button>
+            <button class="completed" type="button">
+                Completed
+            </button>
+        </div>
+     </div>
+
+     <form class="addTask" id="addTask">
+		<input type="text" id="task" name="newTask" />
+        <button type="button" class="btn">+</button>
+     </form>
+    </main>
+
+    <footer>
+        
+    </footer>
+    
+    <script src="./main.js" type="module"></script>
+  </body>
+
+</html>
