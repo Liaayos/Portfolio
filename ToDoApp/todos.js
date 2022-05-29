@@ -88,7 +88,7 @@ function renderTodoList(list, key, element) {
             const btnItem = document.createElement('button');
             btnItem.setAttribute('type', "button");
             btnItem.setAttribute('id', item.id + "btn");
-            btnItem.textContent = "borrar"
+            btnItem.textContent = "Delete"
 
             checkbox.checked = item.completed
 
@@ -151,7 +151,13 @@ function deleteTask(id, key, element) {
 function setActiveTasks(key){
     
     
-    const number = (ls.readFromLS(key).filter(item => item.completed === false)).length;
+    const localStorageArray = ls.readFromLS(key);
+    
+    let number = 0
+    
+    if (localStorageArray !== null) {
+        number = (localStorageArray.filter(item => item.completed === false)).length;
+    }
 
     util.qs(".tasksleft").textContent = number
 }
