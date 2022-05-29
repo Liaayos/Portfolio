@@ -120,6 +120,7 @@ function renderTodoList(list, key, element) {
 }
 
 function switchStatus(id, key) {
+    todoList = ls.readFromLS(key)
     todoList.forEach(function (item) {
         if (item.id === id) {
             item.completed = !item.completed;
