@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Assignment portal for Lia Ayos in WDD 330: Web Frontend Development at Brigham Young University - Idaho" />
+    <title>Lia's Portfolio</title>
+    <link href="../style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        <h1>Lia's Portfolio</h1>
+       
+        <h2>Call and Apply Methods</h2>
+        <p>
+            There is another way to set the value of this, we use the call() method.
+            The first argument is always the value of this. If we need to place more arguments
+            we need to do it after "this". If we didn't define this in the body of the funtion, we 
+            still can call the "call()" placing as first parameter "null".
+        </p>
+
+        <h2>Memoization</h2>
+        <p>
+            It is the same as caching. When a function takes too long to return a value, we have the option
+            to save the result in cache property; then we can take the value from that cache later.
+        </p>
+
+        <h2>Immediately Invoked Function Expressions</h2>
+        <p>
+            Also known as IFFE. This function is invoked once is created. This can be achieved by placing the 
+            parenthesis after the function. Example (function (){}). If we place code inside and IFFE funtion,
+            the variables will be available only when the function is called. This is useful when we are trying
+            temporary variables. We also have the option to use safely strict mode using IFFE. If we place the 
+            strict mode inside an IFFE function, it will only take that function as strict and we don't have to apply
+            strict mode to the whole code.
+        </p>
+
+        <h2>Recursive Functions</h2>
+        <p>
+            This happens when a function is invoked by itself if a condition is met.
+        </p>
+
+        <h2>Callbacks</h2>
+        <p>
+            Callback are functions passed as arguments to other functions. Callback makes asynchronous programming easier.
+            We need this when we are waiting for something to happen in the code, but we want the program to still run without
+            waiting the event to happen.
+        </p>
+
+        <h2>Async Functions</h2>
+        <p>
+            Async functions allow to write code as if were synchronous. We can get to this point by using the await operator
+            before the asynchronous function.
+        </p>
+
+        <h2>Generalized Functions</h2>
+        <p>
+            It is a good practice to use Callbacks to write generalized functions to keep the code reusable and clean.
+        </p>
+
+        <h2>Functions That Return Functions</h2>
+        <p>
+            Yes, we can return function from another function. To use the returned function of the function, we need
+            to assign it to a variable.
+        </p>
+
+        <h2>Function Scope</h2>
+        <p>
+            Every function has its scope. When we define a function inside another funtion that function that is inside
+            has access to the variables in the outter function. 
+        </p>
+
+        <h2>Functional Programming</h2>
+        <p>
+            It is programming paradigm. It uses pure functions mostly. Pure fuctions are the ones following
+            these rules: The return value must come out of the provided arguments. Not changing values or data in the program.
+            And if it is given the same values it will return the same result.
+        </p>
+
+        <h2>Higher-Order Functions</h2>
+        <p>
+            These functions are the ones that accept another function as an argument or return another function or both.
+
+        </p>
+
+        <h2>Currying</h2>
+        <p>
+            When a function is curried means that not all arguments have been provided. To make it work it returns a funtion with
+            the arguments that were provided when first called and waits for the remaining arguments.
+        </p>
+
+        <h2>AJAX</h2>
+        <p>
+            Ajax is the way to get informacion a provide information to the server asynchronously. It also updates the web page without the 
+            need to reloading.
+        </p>
+
+        <h2>The Fetch API</h2>
+        <p>
+            This is a living standar for requesting and sending data asynchronously. It only has one mandatory argument and it's the url.
+            JSON is the most known format for AJAX. We can use the Request object to have more control over the request. Request is creating by 
+            using the Request constructor. This constructor has the following properties: URL, method, headers, mode, cache, credentials and redirect.
+        </p>
+
+        <h2>Questions:</h2>
+        <p>
+            What is a blob object?
+        </p>
+
+    </main>
+    
+</body>
+
+</html>
