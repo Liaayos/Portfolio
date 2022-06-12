@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Assignment portal for Lia Ayos in WDD 330: Web Frontend Development at Brigham Young University - Idaho" />
+    <title>Lia's Portfolio</title>
+    <link href="../style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        <h1>Lia's Portfolio</h1>
+       
+        <h2>Transforms</h2>
+        <p>
+           This can be a property and funtion, it allows to translate, rotate scale and skew an element. 
+            The value is more functions or just one. 
+        </p>
+
+        <h2>Translation</h2>
+        <p>
+           These functions allows to move elements in any direction using X and Y axes.
+           Transforms are not supported in all browsers. They don't work on inline elements.
+        </p>
+
+        <h2>Scaling</h2>
+        <p>
+           This functions scales an element horizontally first and then vertically, scale(x,y).
+           Scaling like translation has no impact on the flow of the document.
+        </p>
+
+        <h2>Rotation</h2>
+        <p>
+           As the name states, it rotates elements. It will rotate by the element's center with angles, declared as 
+           degrees. 
+        </p>
+
+        <h2>Transitions</h2>
+        <p>
+           Transitions allows values of CSS properties to change with time. With transitions for example, colors 
+           can be change gradually. To do this, we need to declare the original state of the element in the default
+           style declaration, then declare the final state of the transitioned element and include transitions functions 
+           in the default style declaration. The transition-duration Property sets the time that the element will take to
+           transition.The transition-timing-function Property is more detailed, it allows to start fast and go slower or 
+           start slow and become faster.
+        </p>
+
+        <h2>Transition-delay Property</h2>
+        <p>
+           It allows to delay the transition before it begins. A negative one will make it start immediately but it will begin 
+           in some part of the way. This allows to play with these timings.
+        </p>
+
+        <h2>The transition Shorthand Property</h2>
+        <p>
+           There is a way to make shorter the code when writing transitions. This is achieve by placing everything in the same line.
+           It starts with transition: transforms 0.3s ease-out 50ms. If delay is included, we must place the duration and before that, the delay.
+        </p>
+
+        <h2>Multiple Transitions</h2>
+        <p>
+           We can add multiple transitions at the same time. If we want the transitions to have different timings, we can separate by coma.
+           It can be used Shorthand also to accomplish this.
+        </p>
+
+        <h2>Animations</h2>
+        <p>
+           Transitions animate elements but they are limited. Css animation allow to have full control over the animation.
+           We need to use or define first and last keyframe to make animations. 
+        </p>
+
+        <h2>Keyframes</h2>
+        <p>
+           There are some steps to animate an element in CSS. First we need to create a named animation, attach that animation to an element in the element's property
+           declaration block. It is important to not quote the animation name.
+        </p>
+
+        <h2>Animation Properties</h2>
+        <p>
+            animation-name, animation-duration (defines the length of time the animation will last), animation-timing-function (It defines how is going to progress in the duration of the animation),
+            animation-iteration-count (It defines how many times the animation will play), animation-direction (To modify the default behavior of starting from 0% to 100% on the keyframe),
+            animation-delay (Id defines how long will wait before starting the animation), animation-fill-mode (Defines what will happen before the animation iteration begins).
+
+        </p>
+
+        <h2>Canvas</h2>
+        <p>
+           Canas API allows us to create new things on the website without the need to download images from the network.
+            We can also manipulate pixels, all using Javascript and Canvas. The Canvas coordinate System starts in the upper left hand in 0,0.
+            When we find an anonymous function attached to an event listener, is because the function is bound to that event.
+
+        </p>
+
+        <h2>Drawing Shapes by Creating Paths</h2>
+        <p>
+           There are built-in methods to create rectangles and squares, however, there is no built-in methods for circles or triangles.
+           We need to lay out the path of the shape. Paths create bluprints for the lines, we cannot see them until we provide them a stroke.
+           With more complicated shapes, we need to layout the path, stroke it and fill it.
+
+        </p>
+
+        <h2>Radians</h2>
+        <p>
+           These are units to measure angles. One radiant is 180 degrees, two radiants is 360 degrees.
+        </p>
+
+        <h2>Drawing an Image to the Canvas</h2>
+        <p>
+           We can get an html element, but ensuring the element has loaded in the page with an event listener.
+           Then set up the canvas context and making the area of the element visible.
+        </p>
+
+        <h2></h2>
+        <p>
+           We can also play with the pixels of an image and change them. Canvas allows us to grab the red, green 
+           and blue values of each pixel and change them to another color. This is also posible with videos.
+           We might find issues when trying to manipulate the videos and images, we can caths those errors with try and catch.
+
+        </p>
+
+        <h2>SVG</h2>
+        <p>
+            Scalable Vector Graphics, is a specific file format that permits to describe vector graphics, this is achieved by using XML (eXtensible Markup Language).
+            A system to anotate plain text. Is better to use an image editor to create images, because creating them with SVG takes time and unnecessary effort.
+            We can use Raphaël Library that makes animation easier when using SVG.
+        </p>
+
+
+        <h2>Questions:</h2>
+        <p>
+            Is Canvas and SVG Libraries? I don't quite understand what are they. Because they use Javascript but they have their own file names, as 
+            we were using another programming language.
+        </p>
+
+    </main>
+    
+</body>
+
+</html>
