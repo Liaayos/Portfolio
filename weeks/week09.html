@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Assignment portal for Lia Ayos in WDD 330: Web Frontend Development at Brigham Young University - Idaho" />
+    <title>Lia's Portfolio</title>
+    <link href="../style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        <h1>Lia's Portfolio</h1>
+       
+        <h2>The Window Object</h2>
+        <p>
+            JavaScript has a global object. The variables in the global scope are properties of this object.
+            The functions are methods of the global object.
+        
+        </p>
+
+        <h2>The Browser Object Model</h2>
+        <p>
+            These are properties and methods with information regarding the browser and computer screen. In order to see
+            something in the BMO, we need to run it in a browser environment. It needs to have a window object.
+        </p>
+
+        <h2>Going Global</h2>
+        <p>
+            The global variables are the ones created without using const, let or var. Global variables are properties of the global object.
+            In the browser the global object is the window object. parseInt() and isNaN() are methods of the global object.
+            alert(), confirm() and prompt() are functions that produce dialogs and are methods of the window object.
+            window.alert() will pause the program and show a message in a dialog box. window.confirm() will stop the program and show a confirm 
+            dialog. window.prompt() will stop the program and display a dialog box with the option to enter text.
+
+        </p>
+
+        <h2>Browser Information</h2>
+        <p>
+            The window object has some properties like navigator that returns a reference to the navigator object.
+            This navigator object has information about the browser we are using. This information thou can modify by a user and make it look
+            as it is other browser. 
+        </p>
+
+        <h2>Location</h2>
+        <p>
+            Window location property is also an object with information about the URL of the present page. 
+            Window location has different properties, href property provides the URL as string. Protocol property returns the type of protocol used, for example http, https etc.
+            host property returns the domain of the URL as string and the port; the difference with hostname is that returns only the description of the domain of the URL.
+            Pathname returns the path that follows the domain in string as well. There are some more, like hash, origin, and search.
+        </p>
+
+        <h2>The Browser History</h2>
+        <p>
+            This property is useful when we want to access to the information of previos visited pages. The window.history has lenght as well that shows the number of visited pages. window.history.go()
+            is used to go to a specific page.
+        </p>
+
+        <h2>Screen Information</h2>
+        <p>
+            window.screen object has information of the screen seen in the browser. The window.screen has height and width and can be accessed with the same, window.screen.height .
+            window.scren has also colosDepth that will show the color of the user's monitor. The screen object has a lot of uses for mobile.
+
+        </p>
+
+        <h2>The Document Object</h2>
+        <p>
+            The window object has a document object, this object contains properties and methods that interact with the page that is into the window.
+        </p>
+
+        <h2>Cookies</h2>
+        <p>
+            Cookies are information stored locally, it is used for personalizing the user's experience. We can create cookies, change its value, delete them or make them last longer.
+            We can also get the information that cookies are storing.
+        </p>
+
+        <h2>Animmation</h2>
+        <p>
+            When can create animation with Javascript, usually is better with CSS but depens case to case when to use JavaScript or CSS.
+            Animation has setTimeOut() and setIterval() methods used to animate.
+        </p>
+
+        <h2>HTML5 APIs</h2>
+        <p>
+            The data- attribute is for embedding information in a web page with custom attributes. This attribute is used to identify specific elements. 
+            Every element has dataset property useful to access data- attribute. APIs are help to have access to hardware like the battery or camara. Web storage API helps with the access 
+            to key-value store, similar to cookies but with less restrictions. Web storage API is different from a cookie because it doesn't share the information with the server on every request, information is accessible 
+            in different windows, the storage capacity is bigger and it the information stored is not deleted automaticaly. 
+        </p>
+
+        <h2>Geolocation</h2>
+        <p>
+            This API is used to get the geographical location of the device. Geolocation has navigator object.
+        </p>
+
+        <h2>Web Workers</h2>
+        <p>
+            Web workers allow to run the program in the backgroud without the need to wait for one part of the program to be completed. Service workers allows to run the program or script in the background and also being able to intercept 
+            networks request. Websocket permits two-way communication with the server. Notification allows API to show messages using the system's notifications. Multimedia allows to play audio and video in browsers with tags of audio and video.
+
+        </p>
+
+        <h2>Drawing with Canvas</h2>
+        <p>
+            Canvas is an element to permit graphics to be drawn in a web page in real time with JavaScript. Canvas element is a rectangular element where we can draw, it uses coordinates starting with 0,0.
+        </p>
+
+        
+        <h2>Questions:</h2>
+        <p>
+            No questions this time.
+        </p>
+
+    </main>
+    
+</body>
+
+</html>
