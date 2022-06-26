@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Assignment portal for Lia Ayos in WDD 330: Web Frontend Development at Brigham Young University - Idaho" />
+    <title>Lia's Portfolio</title>
+    <link href="../style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        <h1>Lia's Portfolio</h1>
+       
+        <h2>Client-side form validation</h2>
+        <p>
+            Client-side validation is when we make sure that the information provided is in the correct format.
+            It shouldn't be an estrict security validation but it should have the minimun requirements.
+        </p>
+
+        <h2>What is form validation?</h2>
+        <p>
+            This is when the browser validates the information entered and checks that is in the correct format. We
+            can find "Please enter a valid email address" to ask you for specific format. When the information is correct, the browser
+            will let you send the information.
+        </p>
+
+        <h2>Different types of client-side validation</h2>
+        <p>
+            There are two types of form validation, one is Built-in form validation, that uses HTML5 and it doesn't require much of 
+            Javacript, but we cannot customize much of that. The other is with Javacript, it is way more customizable, however, we need to 
+            create it from scratch.
+        </p>
+
+        <h2>Using built-in form validation</h2>
+        <p>
+            When we validate attributes on form elements. required: When something is mandadory. minlength, maxlenght, specifies the lenght of strings.
+            min and max, specifies the lenght in numbers. type: It tells if the data is number or string or email or something else. pattern: says the pattern that
+            the data needs to follow. An element is valid when an element matches :valid pseudo class, is not valid when the element matches invalid: css pseudo class.
+
+        </p>
+
+        <h2>Validating forms using JavaScript</h2>
+        <p>
+            This is used when we need to customize our forms. The Constraint Validation API is methods and properties in the form element DOM interface like.
+            HTMLButtonElement, HTMLFieldSetElement, HTMLInputElement, HTMLOutputElement, HTMLSelectElement, HTMLTextAreaElement. The Constraint validation API makes some properties available on the 
+            previous mentioned elements like validationMessage, validity, willValidate. Also makes available the following methods: checkValidity(), reportValidity(), setCustomValidity(message).
+        </p>
+
+        <h2>Using the Fetch API</h2>
+        <p>
+            This provides to Javacript the opportunity to access and control parts of the http pipeline. It has a global Fetch() to work asynchronously.
+            The simple Fetch() takes one parameter and is the path to the source you want to fectch. This returns a promise that ends with a response object.
+            That response is a representation of the HTTP and to get the JSON body we use json() method. Fetch has an optional second parameter, an init object
+            that permits control over different strings. We can upload multiple files with HTML, input type="file" multiple. When there is rejection, it will bring a TypeError.
+        </p>
+
+        
+        <h2>Questions:</h2>
+        <p>
+            What does an init object has inside?
+            What are the cors and why sometimes we need to block them?
+            What are headers?
+        </p>
+
+    </main>
+    
+</body>
+
+</html>
