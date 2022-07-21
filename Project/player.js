@@ -1,8 +1,10 @@
 export default class Player {
-    constructor(name, startingPlayer) {
+    constructor(id, name, isStartingPlayer) {
+        this.id = Date.now()
         this.name = name
-        this.startingPlayer = startingPlayer
+        this.isStartingPlayer = isStartingPlayer 
         this.playTime = 0
+        this.times = []
     }
 
     getPayment(totalCost) {

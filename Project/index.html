@@ -1,26 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>To Do List</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="./style.css" rel="stylesheet">
-  </head>
 
-  <body>
-    <main>
-     <form class="addTask" id="addTask">
-		<label>Number of Players </label><input type="number" id="playersNumber" name="playersNumber"/>
-        <label>Total Cost </label><input type="number" id="totalCost" name="totalCost"/>
-        <button type="button" class="btn">Submit</button>
-     </form>
-    </main>
+<head>
+  <meta charset="utf-8" />
+  <title>To Do List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="./style.css" rel="stylesheet">
+</head>
 
-    <footer>
-        
-    </footer>
-    
-    <script src="./main.js" type="module"></script>
-  </body>
+<body>
+  <main>
+    <form class="addTask" id="addTask">
+      <label>Number of Players </label><input type="number" id="playersNumber" name="playersNumber" />
+      <label>Total Cost </label><input type="number" id="totalCost" name="totalCost" />
+      <button type="button" class="btn">START</button>
+    </form>
+    <span id="startingTime"> </span>
+
+    <br>
+    <span id="time"> </span>
+    <br>
+    <form class="newPlayer" id="newPlayer">
+      <input type="text" id="playerName" name="newPlayer" />
+      <button type="button" class="addPlayerBtn">Add Player</button>
+    </form>
+
+
+    <form class="substitution" id="substitution">
+      <select id="playing">
+      </select>
+
+      <select id="notPlaying">
+      </select>
+
+      <button type="button" class="go">Substitute</button>
+    </form>
+
+    <div class="player">
+      <ul id="playerList">
+
+      </ul>
+    </div>
+
+    <br><br><br>
+    <form class="getWeather">
+      <label>City Name </label><input type="text" id="cityName" name="playersNumber" />
+      <button type="button" class="weatherBtn">Search</button>
+    </form>
+
+
+    <section class=weather-summary>
+      <h3>Weather Summary</h3>
+      <p>Currently: <span id="current-condition"></span></p>
+      <p>Current Temp: <span id="temperature"></span>°F</p>
+      <p>High: <span id='high'></span>°F</p>
+      <p>Wind Chill: <span id="windchill"></span></p>
+      <p>Humidity: <span id="humidity"></span>%</p>
+      <p>Wind Speed: <span id="windspeed"></span> mph</p>
+    </section>
+
+    <div class=day-forcast>
+      <h2>
+        Five Day Forecast
+      </h2>
+      <div id="flex">
+        <div class="flex-col">
+          <span class="col-head" id="name1"></span>
+          <img class="sun" id="1-day" src="" alt="">
+          <p><span class="data" id="day1"></span> °F</p>
+        </div>
+        <div class="flex-col">
+          <span class="col-head" id="name2"></span>
+          <img class="sun" id="2-day" src="" alt="">
+          <p><span class="data" id="day2"></span>°F</p>
+        </div>
+        <div class="flex-col">
+          <span class="col-head" id="name3"></span>
+          <img class="sun" id="3-day" src="" alt="">
+          <p><span class="data" id="day3"></span>°F</p>
+        </div>
+        <div class="flex-col">
+          <span class="col-head" id="name4"></span>
+          <img class="sun" id="4-day" src="" alt="">
+          <p><span class="data" id="day4"></span>°F</p>
+        </div>
+        <div class="flex-col">
+          <span class="col-head" id="name5"></span>
+          <img class="sun" id="5-day" src="" alt="">
+          <p><span class="data" id="day5"></span>°F</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+
+  </footer>
+
+  <script src="./weather.js" type="module"></script>
+  <script src="./main.js" type="module"></script>
+</body>
 
 </html>
