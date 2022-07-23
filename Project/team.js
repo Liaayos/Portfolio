@@ -11,7 +11,7 @@ export default class Team {
 
     addPlayer(isStarting) {
         const playerName = document.getElementById('playerName').value;
-        const newPlayer = new Player(this.players.length, playerName, isStarting)
+        const newPlayer = new Player(playerName, isStarting)
 
 
         const newPlayersList = ls.readFromLS(this.key) || []
@@ -37,11 +37,67 @@ export default class Team {
         return number
     }
 
-    substitute(idOut, idIn){
+    substitute(idOut, idIn, time) {
         switchStatus(idOut, this.key)
-        console.log({in:idIn})
         switchStatus(idIn, this.key)
+        this.players = ls.readFromLS(this.key)
 
+        ls.readFromLS(this.key).forEach((player, index) => {
+            const newPlayer = new Player();
+            Object.assign(newPlayer, player)
+            this.players[index] = newPlayer
+
+            if (player.id === parseInt(idOut)) {
+                this.players[index].setTimeOut(time);
+            }
+
+            if (player.id === parseInt(idIn)) {
+                this.players[index].setTimeIn(time);
+            }
+        })
+
+        ls.writeToLS(this.key, this.players)
+    }
+    setTimeForInitialTeam() {
+
+        ls.readFromLS(this.key).forEach((player, index) => {
+            const newPlayer = new Player();
+            Object.assign(newPlayer, player)
+            this.players[index] = newPlayer
+
+            if (player.isStartingPlayer === true) {
+                this.players[index].setTimeIn(1);
+                this.players[index].playedTime = 1
+            } else {
+                this.players[index].startingTime = null;
+                this.players[index].playedTime = 0 //sobra
+            }
+        })
+
+        ls.writeToLS(this.key, this.players)
+    }
+
+    setPayments(time, unitaryCost) {
+        ls.readFromLS(this.key).forEach((player, index) => {
+            const newPlayer = new Player();
+            Object.assign(newPlayer, player)
+            newPlayer.setMoneyToPay(time, unitaryCost)
+
+            this.players[index] = newPlayer
+
+            let cop = Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "COP",
+                useGrouping: true,
+                maximumSignificantDigits: 3,
+            }); // $148,000
+
+            util.qs('#label-id-' + newPlayer.id).textContent = newPlayer.name + '(' + cop.format(newPlayer.total) + ')'
+
+
+        })
+
+        ls.writeToLS(this.key, this.players)
     }
 
 }
@@ -67,7 +123,6 @@ function renderPlayersList(list, key, element) {
             btnItem.setAttribute('id', item.id + "btn");
             btnItem.textContent = "Delete"
 
-            console.log(item.isStartingPlayer)
             checkbox.checked = item.isStartingPlayer
 
             util.onTouch(btnItem, () => {
@@ -85,6 +140,7 @@ function renderPlayersList(list, key, element) {
 
 
             labelItem.textContent = text;
+            labelItem.setAttribute('id', 'label-id-' + item.id);
 
             listItem.appendChild(checkbox);
             listItem.appendChild(labelItem);
@@ -103,15 +159,15 @@ function switchStatus(id, key) {
     const playerList = ls.readFromLS(key)
     const numberActual = (playerList.filter(item => item.isStartingPlayer === true)).length;
     const maxNumber = ls.readFromLS("game").playersNumber
-        playerList.forEach(function (item) {
-            if (item.id === parseInt(id) && (numberActual < maxNumber || item.isStartingPlayer)) {
-                item.isStartingPlayer = !item.isStartingPlayer;
-                ls.writeToLS(key, playerList);
-            }else {
-                renderPlayersList(playerList, key, "playerList")
-            }
-        })
-    
+    playerList.forEach(function (item) {
+        if (item.id === parseInt(id) && (numberActual < maxNumber || item.isStartingPlayer)) {
+            item.isStartingPlayer = !item.isStartingPlayer;
+            ls.writeToLS(key, playerList);
+        } else {
+            renderPlayersList(playerList, key, "playerList")
+        }
+    })
+
 }
 
 

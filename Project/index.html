@@ -3,38 +3,32 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>To Do List</title>
+  <title>Soccer Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="./style.css" rel="stylesheet">
 </head>
 
 <body>
   <main>
+    <h1>Player's Calculator</h1>
+
     <form class="addTask" id="addTask">
-      <label>Number of Players </label><input type="number" id="playersNumber" name="playersNumber" />
+      <label>Number of Players at the Same Time </label><input type="number" id="playersNumber" name="playersNumber" /> <br>
       <label>Total Cost </label><input type="number" id="totalCost" name="totalCost" />
       <button type="button" class="btn">START</button>
     </form>
-    <span id="startingTime"> </span>
 
-    <br>
-    <span id="time"> </span>
-    <br>
+    
+    <div id="time-container">
+      <h2>Time Since the Game Started</h2>
+      <span id="time"></span>
+    </div>
+
     <form class="newPlayer" id="newPlayer">
       <input type="text" id="playerName" name="newPlayer" />
       <button type="button" class="addPlayerBtn">Add Player</button>
     </form>
 
-
-    <form class="substitution" id="substitution">
-      <select id="playing">
-      </select>
-
-      <select id="notPlaying">
-      </select>
-
-      <button type="button" class="go">Substitute</button>
-    </form>
 
     <div class="player">
       <ul id="playerList">
@@ -42,7 +36,19 @@
       </ul>
     </div>
 
-    <br><br><br>
+
+    <form class="substitution" id="substitution">
+      <select id="playing">
+
+      </select>
+
+      <select id="notPlaying">
+
+      </select>
+
+      <button type="button" class="go">Substitute</button>
+      <button type="button" class="finish">FINISH</button>
+    </form>
     <form class="getWeather">
       <label>City Name </label><input type="text" id="cityName" name="playersNumber" />
       <button type="button" class="weatherBtn">Search</button>
@@ -54,7 +60,6 @@
       <p>Currently: <span id="current-condition"></span></p>
       <p>Current Temp: <span id="temperature"></span>°F</p>
       <p>High: <span id='high'></span>°F</p>
-      <p>Wind Chill: <span id="windchill"></span></p>
       <p>Humidity: <span id="humidity"></span>%</p>
       <p>Wind Speed: <span id="windspeed"></span> mph</p>
     </section>
@@ -93,12 +98,18 @@
     </div>
   </main>
 
+  <p>
+    Alll the weather information comes from openweathermap.org, please visit in the link below.
+  </p>
   <footer>
 
-  </footer>
+    <p id="copyright">&copy; <a href="https://www.byui.edu/online" target="blank"> BYU Online
+        Learning</a></p>
+    <a href="https://openweathermap.org/" target="blank">openweathermap.org</a>
 
-  <script src="./weather.js" type="module"></script>
-  <script src="./main.js" type="module"></script>
+    <script src="./weather.js" type="module"></script>
+    <script src="./main.js" type="module"></script>
+  </footer>
 </body>
 
 </html>

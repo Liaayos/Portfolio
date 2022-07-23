@@ -1,0 +1,41 @@
+THE GAME WEB APP
+
+- Definir características del juego.
+- Registrar a los jugadores. (Eliminar, Editar)
+- Definir  a los titulares.
+- Contabilizar el tiempo de juego.
+- Registrar los cambios.
+- Hacer el cálculo del dinero a pagar por cada jugador de acuerdo al tiempo que jugó.
+- Va a mostrar el clima.
+- Guardar todo el LS
+
+*****
+CLASES
+Main
+Arreglo de jugadores
+Guardar Local Storage
+Validar la cantidad de titulares
+
+Team
+- Jugadores: Lista de Clase Jugador
+* Añadir Jugador
+* Eliminar
+* Modificar
+
+Jugador.
+- Nombre.
+- Número.
+- Tiempo jugado.
+- Es titular.
+*Calcular monto a pagar
+
+Juego
+- Cantidad de jugadores por equipo
+- Tiempo de inicio
+- Tiempo final
+- Costo
+
+LS
+
+p8xd3DuFw2
+

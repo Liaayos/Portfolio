@@ -24,6 +24,7 @@ onTouch(btnSelector, () => {
 
     newGame.saveInfo(Date.now(), playersNumber, totalCost)
     reloadDropDown ()
+    team.setTimeForInitialTeam()
 
 })
 
@@ -38,12 +39,19 @@ onTouch((qs('.addPlayerBtn')), () => {
         team.addPlayer(false)
     }
 
+    reloadDropDown ()
+
 })
 
 onTouch((qs('.go')), () => {
-    team.substitute(qs('#playing').value,qs('#notPlaying').value)
+    const miliseconds = (Date.now() - newGame.startingTime)
+    team.substitute(qs('#playing').value,qs('#notPlaying').value, miliseconds)
     reloadDropDown()
     team.listPlayers()
+})
+
+onTouch((qs('.finish')), () => {
+    team.setPayments(Date.now() - newGame.startingTime, newGame.totalCost/newGame.playersNumber)
 })
 
 
