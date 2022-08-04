@@ -9,7 +9,7 @@ export default class Team {
         this.players = ls.readFromLS(this.key) || []
     }
 
-    addPlayer(isStarting) {
+    addPlayer(isStarting, stage) {
         const playerName = document.getElementById('playerName').value;
         const newPlayer = new Player(playerName, isStarting)
 
@@ -17,7 +17,8 @@ export default class Team {
         const newPlayersList = ls.readFromLS(this.key) || []
         newPlayersList.push(newPlayer)
         ls.writeToLS("players", newPlayersList)
-        this.listPlayers()
+        this.listPlayers(stage)
+
     }
 
     listPlayers() {
@@ -38,8 +39,8 @@ export default class Team {
     }
 
     substitute(idOut, idIn, time) {
-        switchStatus(idOut, this.key)
-        switchStatus(idIn, this.key)
+        switchStatus(idOut, this.key, true)
+        switchStatus(idIn, this.key, true)
         this.players = ls.readFromLS(this.key)
 
         ls.readFromLS(this.key).forEach((player, index) => {
@@ -103,8 +104,10 @@ export default class Team {
 }
 
 function renderPlayersList(list, key, element) {
+
+    const stage = ls.readFromLS("game").stage
     let ul = document.getElementById(element);
-    ul.textContent = ""
+    ul.textContent = "";
     if (list !== null) {
 
         list.forEach(function (item) {
@@ -121,6 +124,7 @@ function renderPlayersList(list, key, element) {
             const btnItem = document.createElement('button');
             btnItem.setAttribute('type', "button");
             btnItem.setAttribute('id', item.id + "btn");
+            btnItem.setAttribute('class', 'delete-plyr-btn');
             btnItem.textContent = "Delete"
 
             checkbox.checked = item.isStartingPlayer
@@ -129,15 +133,12 @@ function renderPlayersList(list, key, element) {
                 deletePlayer(list, item.id, key, element)
             })
 
-
             util.onTouch(checkbox, () => {
-                switchStatus(item.id, key)
+                switchStatus(item.id, key, false)
             })
-
 
             const labelItem = document.createElement('label');
             labelItem.setAttribute('for', item.id);
-
 
             labelItem.textContent = text;
             labelItem.setAttribute('id', 'label-id-' + item.id);
@@ -150,23 +151,46 @@ function renderPlayersList(list, key, element) {
 
 
         })
+
     }
 
-    return
+    if (stage == 'gameStartedStage') {
+        util.switchDisplay('.delete-plyr-btn', 'none')
+    } else {
+        util.switchDisplay('.delete-plyr-btn', 'inline-block')
+    }
 }
 
-function switchStatus(id, key) {
-    const playerList = ls.readFromLS(key)
-    const numberActual = (playerList.filter(item => item.isStartingPlayer === true)).length;
-    const maxNumber = ls.readFromLS("game").playersNumber
-    playerList.forEach(function (item) {
-        if (item.id === parseInt(id) && (numberActual < maxNumber || item.isStartingPlayer)) {
+function switchStatus(id, key, isSubstitution) {
+
+    const players = getPlayerListFromJSON(key)
+    const initialPlayersSelected = players.reduce((counter, {
+        isStartingPlayer
+    }) => isStartingPlayer === true ? counter += 1 : counter, 0);
+    const maxPlayers = ls.readFromLS("game").playersNumber
+    const isGameStarted = ls.readFromLS("game").isGameStarted
+
+    // const numberActual = (playerList.filter(item => item.isStartingPlayer === true)).length;
+    players.forEach(function (item) {
+        if (item.id === parseInt(id) && (initialPlayersSelected < maxPlayers || item.isStartingPlayer) && (!isGameStarted || isSubstitution)) {
             item.isStartingPlayer = !item.isStartingPlayer;
-            ls.writeToLS(key, playerList);
-        } else {
-            renderPlayersList(playerList, key, "playerList")
+            ls.writeToLS(key, players);
         }
     })
+
+    renderPlayersList(players, key, "playerList")
+
+}
+
+function getPlayerListFromJSON(key) {
+    let playersList = [];
+    const newLocal = ls.readFromLS(key);
+    newLocal.forEach((player) => {
+        const newPlayer = new Player();
+        Object.assign(newPlayer, player)
+        playersList.push(newPlayer)
+    })
+    return playersList
 
 }
 

@@ -8,22 +8,21 @@ export default class Game {
         this.playersNumber = readFromLS("game")?.playersNumber || 7
         this.endingTime 
         this.totalCost = readFromLS("game")?.totalCost || 100000
-        this.saveInfo(this.startingTime, this.playersNumber, this.totalCost)
-        this.loadInfo()
+        this.isGameStarted = readFromLS("game")?.isGameStarted || false
+        this.stage = readFromLS("game")?.stage || 'planningStage'
+        this.saveInfo(this.startingTime, this.playersNumber, this.totalCost, this.isGameStarted, this.stage)
+        this.loadInfo()  
+    }    
 
-        
-    }
-
-    
-
-    saveInfo(startingTime, playersNumber, totalCost){
+    saveInfo(startingTime, playersNumber, totalCost, isGameStarted, stage){
         const info = {
             startingTime,
             playersNumber,
-            totalCost
+            totalCost,
+            isGameStarted,
+            stage
         }
-        writeToLS("game", info)
-    
+        writeToLS("game", info)    
     }
     
     loadInfo () {
@@ -31,5 +30,31 @@ export default class Game {
         qs('#totalCost').value = this.totalCost
     }
 
+    setStage (stage) {
+        const game = readFromLS("game")
+        this.stage = stage
+        game.stage = this.stage
+        writeToLS("game", game)
+    }
+
 }
 
+const stageManager = {
+    'planningStage': () => {
+
+    },
+    'addPlayersStage': () => {
+        newGame.setStage("addPlayersStage")
+        qs('.planning').style.display = "none"
+        qs('.players').style.display = "block"
+        qs('.btn').style.display = "inline-block"
+    },
+    'gameStartedStage': () => {
+        stageManager['addPlayersStage']()
+        newGame.setStage("gameStartedStage")
+        qs('.stage-time').style.display = "block"
+        qs('.substitution').style.display = "block"
+        qs('.btn').style.display = "none"
+        qs('.finish').style.display = "inline-block"
+    }
+}

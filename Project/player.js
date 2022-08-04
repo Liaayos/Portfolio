@@ -19,7 +19,6 @@ export default class Player {
     }
 
     setTimeOut(time) {
-        console.log({ptime: this.playedTime + (time - (this.startingTime || time))}, {calc: (this.startingTime || time)}, {time})
         this.playedTime = this.playedTime + (time - (this.startingTime || time))
         this.startingTime = null
     }

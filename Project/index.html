@@ -12,44 +12,50 @@
   <main>
     <h1>Player's Calculator</h1>
 
-    <form class="addTask" id="addTask">
-      <label>Number of Players at the Same Time </label><input type="number" id="playersNumber" name="playersNumber" /> <br>
-      <label>Total Cost </label><input type="number" id="totalCost" name="totalCost" />
-      <button type="button" class="btn">START</button>
+    <form class="stage-section planning" >
+      <div class="in-card-section">
+        <label>Number of Players at the Same Time </label><input type="number" id="playersNumber"
+          name="playersNumber" /> <br>
+      </div>
+
+      <div class="in-card-section">
+        <label>Total Cost </label><input type="number" id="totalCost" name="totalCost" />
+      </div>
+      <div class="in-card-section">
+        <button type="button" id="set-plan-btn">Done</button>
+      </div>
+
     </form>
 
-    
-    <div id="time-container">
+    <div class="hide stage-section players">
+
+      <form>
+        <input type="text" id="playerName" name="newPlayer" />
+        <button type="button" class="addPlayerBtn">Add Player</button>
+      </form>
+
+      <ul id="playerList">
+      </ul>
+    </div>
+
+    <div class="stage-section hide stage-time">
       <h2>Time Since the Game Started</h2>
       <span id="time"></span>
     </div>
 
-    <form class="newPlayer" id="newPlayer">
-      <input type="text" id="playerName" name="newPlayer" />
-      <button type="button" class="addPlayerBtn">Add Player</button>
-    </form>
-
-
-    <div class="player">
-      <ul id="playerList">
-
-      </ul>
-    </div>
-
-
-    <form class="substitution" id="substitution">
-      <select id="playing">
-
-      </select>
-
-      <select id="notPlaying">
-
-      </select>
-
+    <form class="substitution stage-section hide" id="substitution">
+      <select id="playing"></select>
+      <select id="notPlaying"></select>
       <button type="button" class="go">Substitute</button>
-      <button type="button" class="finish">FINISH</button>
+
     </form>
-    <form class="getWeather">
+
+    <div class="in-card-section game-btns ">
+      <button type="button" class="btn hide">START</button>
+      <button type="button" class="finish hide">FINISH</button>
+      <button type="button" class="reset-btn">RESET</button>
+    </div>
+    <form class="getWeather stage-section">
       <label>City Name </label><input type="text" id="cityName" name="playersNumber" />
       <button type="button" class="weatherBtn">Search</button>
     </form>

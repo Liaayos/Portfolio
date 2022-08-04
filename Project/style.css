@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
 
-.footer, form, h1, #time-container, .player, .day-forcast{
+.footer, h1, #time-container, .stage-section, .day-forcast{
     /* Center the form on the page */
     margin: 0 auto;
     width: 500px;
@@ -12,13 +12,27 @@
     font-family: 'Nanum Gothic', sans-serif;
   }
 
+.hide {
+  display: none;
+}
 
-button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+body{
+  background: #e8e8e8;
 }
 
 button {
-  margin: 0.5em;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  transition: all .3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #fff;
+}
+
+button:hover {
+  box-shadow: -6px -6px 12px #c5c5c5, 6px 6px 12px #fff;
 }
 
 ul {
@@ -32,6 +46,10 @@ ul {
     opacity: 0.7;
 }
 
+.game-btns {
+  text-align: center;
+}
+
 .contact-info {
     padding: 0.5rem;
     display: flex;
@@ -40,6 +58,10 @@ ul {
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
+}
+
+.in-card-section {
+  padding: 0.5rem;
 }
 
 #flex {
